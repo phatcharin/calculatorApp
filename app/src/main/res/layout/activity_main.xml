@@ -14,12 +14,13 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:id="@+id/tableLayout"
-        android:background="#151515">
+        android:background="#151515"
+        android:gravity="center_horizontal">
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingLeft="20dp">
+            android:gravity="center_horizontal">
 
             <Button
                 android:layout_width="70dp"
@@ -30,7 +31,8 @@
                 android:onClick="btn1Clicked"
                 android:background="#0404B4"
                 android:textColor="#FFFFFF"
-                android:textSize="40dp" />
+                android:textSize="40dp"
+                android:gravity="center_horizontal" />
 
             <Button
                 android:layout_width="70dp"
@@ -41,7 +43,8 @@
                 android:onClick="btn2Clicked"
                 android:background="#0404B4"
                 android:textSize="40dp"
-                android:textColor="#FFFFFF" />
+                android:textColor="#FFFFFF"
+                android:gravity="center_horizontal" />
 
             <Button
                 android:layout_width="70dp"
@@ -52,7 +55,8 @@
                 android:onClick="btn3Clicked"
                 android:background="#0404B4"
                 android:textSize="40dp"
-                android:textColor="#FFFFFF" />
+                android:textColor="#FFFFFF"
+                android:gravity="center_horizontal" />
 
             <Button
                 android:layout_width="70dp"
@@ -63,14 +67,15 @@
                 android:onClick="btnPlusClicked"
                 android:background="#FA58F4"
                 android:textSize="40dp"
-                android:textColor="#FFFFFF" />
+                android:textColor="#FFFFFF"
+                android:gravity="center_horizontal" />
 
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingLeft="20dp">
+            android:gravity="center_horizontal">
 
             <Button
                 android:layout_width="70dp"
@@ -81,7 +86,8 @@
                 android:onClick="btn4Clicked"
                 android:background="#0404B4"
                 android:textSize="40dp"
-                android:textColor="#FFFFFF" />
+                android:textColor="#FFFFFF"
+                android:gravity="center_horizontal" />
 
             <Button
                 android:layout_width="70dp"
@@ -92,7 +98,8 @@
                 android:onClick="btn5Clicked"
                 android:background="#0404B4"
                 android:textSize="40dp"
-                android:textColor="#FFFFFF" />
+                android:textColor="#FFFFFF"
+                android:gravity="center_horizontal" />
 
             <Button
                 android:layout_width="70dp"
@@ -103,7 +110,8 @@
                 android:onClick="btn6Clicked"
                 android:background="#0404B4"
                 android:textSize="40dp"
-                android:textColor="#FFFFFF" />
+                android:textColor="#FFFFFF"
+                android:gravity="center_horizontal" />
 
             <Button
                 android:layout_width="70dp"
@@ -114,13 +122,14 @@
                 android:onClick="btnMiClicked"
                 android:background="#FA58F4"
                 android:textSize="40dp"
-                android:textColor="#FFFFFF" />
+                android:textColor="#FFFFFF"
+                android:gravity="center_horizontal" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingLeft="20dp">
+            android:gravity="center_horizontal">
 
             <Button
                 android:layout_width="70dp"
@@ -131,7 +140,8 @@
                 android:onClick="btn7Clicked"
                 android:background="#0404B4"
                 android:textSize="40dp"
-                android:textColor="#FFFFFF" />
+                android:textColor="#FFFFFF"
+                android:gravity="center_horizontal" />
 
             <Button
                 android:layout_width="70dp"
@@ -142,7 +152,8 @@
                 android:onClick="btn8Clicked"
                 android:background="#0404B4"
                 android:textSize="40dp"
-                android:textColor="#FFFFFF" />
+                android:textColor="#FFFFFF"
+                android:gravity="center_horizontal" />
 
             <Button
                 android:layout_width="70dp"
@@ -153,7 +164,8 @@
                 android:onClick="btn9Clicked"
                 android:background="#0404B4"
                 android:textSize="40dp"
-                android:textColor="#FFFFFF" />
+                android:textColor="#FFFFFF"
+                android:gravity="center_horizontal" />
 
             <Button
                 android:layout_width="70dp"
@@ -164,13 +176,14 @@
                 android:onClick="btnMulClicked"
                 android:background="#FA58F4"
                 android:textSize="40dp"
-                android:textColor="#FFFFFF" />
+                android:textColor="#FFFFFF"
+                android:gravity="center_horizontal" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingLeft="20dp">
+            android:gravity="center_horizontal">
 
 
             <Button
@@ -182,7 +195,8 @@
                 android:onClick="btnCClicked"
                 android:background="#0404B4"
                 android:textSize="40dp"
-                android:textColor="#FFFFFF" />
+                android:textColor="#FFFFFF"
+                android:gravity="center_horizontal" />
 
             <Button
                 android:layout_width="70dp"
@@ -193,7 +207,8 @@
                 android:onClick="btn0Clicked"
                 android:background="#0404B4"
                 android:textSize="40dp"
-                android:textColor="#FFFFFF" />
+                android:textColor="#FFFFFF"
+                android:gravity="center_horizontal" />
 
             <Button
                 android:layout_width="70dp"
@@ -204,7 +219,8 @@
                 android:onClick="btnEqualClicked"
                 android:background="#0404B4"
                 android:textSize="40dp"
-                android:textColor="#FFFFFF" />
+                android:textColor="#FFFFFF"
+                android:gravity="center_horizontal" />
 
             <Button
                 android:layout_width="70dp"
@@ -215,13 +231,15 @@
                 android:onClick="btnDivClicked"
                 android:background="#FA58F4"
                 android:textSize="40dp"
-                android:textColor="#FFFFFF" />
+                android:textColor="#FFFFFF"
+                android:gravity="center_horizontal" />
 
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal">
 
         </TableRow>
 
@@ -239,6 +257,6 @@
         android:inputType="none"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:background="#151515"
-        android:textColor="#FFFFFF" />
+        android:textColor="#EEEEEE"
+        android:gravity="center_horizontal" />
 </RelativeLayout>
