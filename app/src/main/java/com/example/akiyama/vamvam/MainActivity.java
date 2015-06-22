@@ -72,6 +72,26 @@ public class MainActivity extends Activity {
         str = str+Integer.toString(j);
         num1 = Integer.valueOf(str).intValue();
         showResult.setText(str);
+        if(operator != 'q')
+        {
+            chkOperator();
+        }
+    }
+    public void chkOperator()
+    {
+        if(operator != 'q')
+        {
+            calculate();
+            perform();
+
+            if(operator =='*'||operator =='/'){
+                num1 = 1;
+            } else {
+                num1 = 0;
+            }
+
+            operator ='q';
+        }
     }
     public void btnPlusClicked(View v){
 
@@ -152,6 +172,8 @@ public class MainActivity extends Activity {
             num1 = num2/num1;
         else if(operator == '*')
             num1 = num2*num1;
+        else if (operator == 'q')
+            num1 = num2;
 
         result1 = Integer.toString(num1);
 
