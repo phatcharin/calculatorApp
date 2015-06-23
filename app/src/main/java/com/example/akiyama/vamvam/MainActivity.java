@@ -6,24 +6,24 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-
+import android.widget.TextView;
 
 
 public class MainActivity extends Activity {
 
-    EditText showResult;
+   TextView showResult;
 
-    int num1,num2;
-    String result1="";
-    String str = "";
-    Character operator = 'q';
+    protected int num1,num2;
+    protected String result1="";
+    protected String str = "";
+    protected Character operator = 'q';
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        showResult = (EditText)findViewById(R.id.numText);
+        showResult = (TextView)findViewById(R.id.numText);
 
     }
 
@@ -67,7 +67,7 @@ public class MainActivity extends Activity {
         insert(0);
 
     }
-    public void insert(int j) {
+    private void insert(int j) {
         // TODO Auto-generated method stub
         str = str+Integer.toString(j);
         num1 = Integer.valueOf(str).intValue();
