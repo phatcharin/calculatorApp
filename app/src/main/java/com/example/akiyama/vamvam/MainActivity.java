@@ -8,12 +8,16 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
+
 
 public class MainActivity extends Activity {
 
    TextView showResult;
 
-    protected int num1,num2;
+    protected BigInteger num1;
+    protected BigInteger num2 = BigInteger.valueOf(0);
     protected String result1="";
     protected String str = "";
     protected Character operator = 'q';
@@ -28,115 +32,125 @@ public class MainActivity extends Activity {
     }
 
     public void btn1Clicked(View v){
-        insert(1);
+        insert(BigInteger.valueOf(1));
 
     }
     public void btn2Clicked(View v){
-        insert(2);
+        insert(BigInteger.valueOf(2));
 
     }
     public void btn3Clicked(View v){
-        insert(3);
+        insert(BigInteger.valueOf(3));
 
     }
     public void btn4Clicked(View v){
-        insert(4);
 
+        insert(BigInteger.valueOf(4));
     }
     public void btn5Clicked(View v){
-        insert(5);
+        insert(BigInteger.valueOf(5));
 
     }
     public void btn6Clicked(View v){
-        insert(6);
+        insert(BigInteger.valueOf(6));
 
     }
     public void btn7Clicked(View v){
-        insert(7);
+        insert(BigInteger.valueOf(7));
 
     }
     public void btn8Clicked(View v){
-        insert(8);
+        insert(BigInteger.valueOf(8));
 
     }
     public void btn9Clicked(View v){
-        insert(9);
+        insert(BigInteger.valueOf(9));
 
     }
     public void btn0Clicked(View v){
-        insert(0);
+        insert(BigInteger.ZERO);
 
     }
-    private void insert(int j) {
+    private void insert(BigInteger j) {
         // TODO Auto-generated method stub
-        str = str+Integer.toString(j);
-        num1 = Integer.valueOf(str).intValue();
+        str = str+j.toString();
+        Log.d("num1str",str);
+        num1 = new BigInteger(str);
+        Log.d("num1Insert",num1.toString());
         showResult.setText(str);
-        if(operator != 'q')
-        {
-            chkOperator();
-        }
+        //chkOperator();
+
     }
     public void chkOperator()
     {
         if(operator != 'q')
         {
             calculate();
-            perform();
+            //Log.d("num1 chkOp",num1.toString());
+            setNum2();
 
             if(operator =='*'||operator =='/'){
-                num1 = 1;
+                num1 = BigInteger.valueOf(1);
+               Log.d("num1*/",num1.toString());
             } else {
-                num1 = 0;
+                num1 = BigInteger.valueOf(0);
+                //Log.d("num1+-",num1.toString());
             }
 
             operator ='q';
         }
     }
     public void btnPlusClicked(View v){
-
-        if(num2 != 0){
-            num1 = num2+num1;
+        chkOperator();
+        if(num2!= BigInteger.ZERO){
+            num1 = num2.add(num1);
             showResult.setText("= " + num1);
-            //Log.d("num2+", Integer.toString(num2));
-            num2 = 0;
+            //Log.d("num2+", num2.toString());
+            num2 = BigInteger.ZERO;
         }
-        perform();
+        setNum2();
+        //Log.d("num2ff",num2.toString());
         operator = '+';
 
 
     }
     public void btnMiClicked(View v){
-        if(num2 != 0){
-            num1 = num2-num1;
+        chkOperator();
+        if(num2!= BigInteger.ZERO){
+            num1 = num2.subtract(num1);
             showResult.setText("= " + num1);
-            //Log.d("num2+", Integer.toString(num2));
-            num2 = 0;
+            //Log.d("num2+", num2.toString());
+            num2 = BigInteger.ZERO;
         }
-        perform();
+        setNum2();
         operator = '-';
 
     }
     public void btnMulClicked(View v){
-        if(num2 != 0){
-            num1 = num2*num1;
+        chkOperator();
+        if(num2!= BigInteger.ZERO){
+            num1=BigInteger.ONE;
+            num1 = num2.multiply(num1);
             showResult.setText("= " + num1);
-            //Log.d("num2+", Integer.toString(num2));
-            num2 = 0;
+            num2 = BigInteger.ONE;
         }
-        perform();
+        setNum2();
+        //Log.d("num2set", num2.toString());
         operator = '*';
 
     }
     public void btnDivClicked(View v){
-        if(num2 != 0){
-            num1 = num2/num1;
+       chkOperator();
+       if (num2 != BigInteger.ZERO)
+       {
+            num1 = BigInteger.ONE;
+            num1 = num2.divide(num1);
             showResult.setText("= " + num1);
-            //Log.d("num2+", Integer.toString(num2));
-            num2 = 0;
-        }
-        perform();
-        operator = '/';
+             //Log.d("num2+", num2.toString());
+            num2 = BigInteger.ONE;
+       }
+       setNum2();
+       operator = '/';
 
     }
     public void btnEqualClicked(View v){
@@ -149,33 +163,40 @@ public class MainActivity extends Activity {
     }
     public void btnCClicked(View v){
         str = "";
-        num1 = 0;
-        num2 = 0;
+        num1 = BigInteger.ZERO;
+        num2 = BigInteger.ZERO;
         showResult.setText("");
         operator = 'q';
     }
-    private void perform() {
-        str = "";
+    private void setNum2() {
+       str = "";
         num2 = num1;
+
         //Log.d("num2Per",Integer.toString(num2));
     }
     private void calculate() {
         // TODO Auto-generated method stub
         if(operator == '+')
         {
-            num1 = num2 + num1;
+            num1 = num2.add(num1);
         }
         else if(operator == '-') {
-            num1 = num2 - num1;
+            num1 = num2.subtract(num1);
         }
-        else if(operator == '/')
-            num1 = num2/num1;
+        else if(operator == '/') {
+            if (num1.equals(BigInteger.ZERO)) {
+                showResult.setText("Cannot divide by zero");
+            } else {
+
+                num1 = num2.divide(num1);
+            }
+        }
         else if(operator == '*')
-            num1 = num2*num1;
+            num1 = num2.multiply(num1);
         else if (operator == 'q')
             num1 = num2;
 
-        result1 = Integer.toString(num1);
+        result1 = num1.toString();
 
         //showResult.setText("= " + result1);
     }
