@@ -16,12 +16,12 @@ public class MainActivity extends Activity {
 
    TextView showResult;
 
-    protected BigInteger num1;
-    protected BigInteger num2 = BigInteger.valueOf(0);
+    private BigInteger num1;
+    private BigInteger num2 = BigInteger.valueOf(0);
     protected String result1="";
-    protected String str = "";
-    protected Character operator = 'q';
-    protected boolean chkDivideEqZero = false;
+    private String str = "";
+    private Character operator = 'q';
+    private boolean chkDivideEqZero = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,11 +75,11 @@ public class MainActivity extends Activity {
     private void insert(BigInteger j) {
         // TODO Auto-generated method stub
         str = str+j.toString();
-        Log.d("num1str",str);
+        //Log.d("num1str",str);
         num1 = new BigInteger(str);
-        Log.d("num1Insert",num1.toString());
+        //Log.d("num1Insert",num1.toString());
         showResult.setText(str);
-        chkOperator();
+
 
     }
     public void chkOperator()
@@ -163,6 +163,7 @@ public class MainActivity extends Activity {
     }
     public void btnCClicked(View v){
         str = "";
+        chkDivideEqZero=false;
         num1 = BigInteger.ZERO;
         num2 = BigInteger.ZERO;
         showResult.setText("");
@@ -203,7 +204,8 @@ public class MainActivity extends Activity {
         } else {
             result1 = num1.toString();
         }
-        
+
+
     }
 
 
