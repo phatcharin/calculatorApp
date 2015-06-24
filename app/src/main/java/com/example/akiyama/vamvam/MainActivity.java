@@ -21,6 +21,7 @@ public class MainActivity extends Activity {
     protected String result1="";
     protected String str = "";
     protected Character operator = 'q';
+    protected boolean chkDivideEqZero = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +79,7 @@ public class MainActivity extends Activity {
         num1 = new BigInteger(str);
         Log.d("num1Insert",num1.toString());
         showResult.setText(str);
-        //chkOperator();
+        chkOperator();
 
     }
     public void chkOperator()
@@ -91,7 +92,7 @@ public class MainActivity extends Activity {
 
             if(operator =='*'||operator =='/'){
                 num1 = BigInteger.valueOf(1);
-               Log.d("num1*/",num1.toString());
+               //Log.d("num1*/",num1.toString());
             } else {
                 num1 = BigInteger.valueOf(0);
                 //Log.d("num1+-",num1.toString());
@@ -101,8 +102,9 @@ public class MainActivity extends Activity {
         }
     }
     public void btnPlusClicked(View v){
-        chkOperator();
+        //chkOperator();
         if(num2!= BigInteger.ZERO){
+            num1=BigInteger.ZERO;
             num1 = num2.add(num1);
             showResult.setText("= " + num1);
             //Log.d("num2+", num2.toString());
@@ -115,8 +117,8 @@ public class MainActivity extends Activity {
 
     }
     public void btnMiClicked(View v){
-        chkOperator();
-        if(num2!= BigInteger.ZERO){
+       if(num2!= BigInteger.ZERO){
+            num1=BigInteger.ZERO;
             num1 = num2.subtract(num1);
             showResult.setText("= " + num1);
             //Log.d("num2+", num2.toString());
@@ -127,7 +129,6 @@ public class MainActivity extends Activity {
 
     }
     public void btnMulClicked(View v){
-        chkOperator();
         if(num2!= BigInteger.ZERO){
             num1=BigInteger.ONE;
             num1 = num2.multiply(num1);
@@ -140,7 +141,6 @@ public class MainActivity extends Activity {
 
     }
     public void btnDivClicked(View v){
-       chkOperator();
        if (num2 != BigInteger.ZERO)
        {
             num1 = BigInteger.ONE;
@@ -170,7 +170,7 @@ public class MainActivity extends Activity {
     }
     private void setNum2() {
        str = "";
-        num2 = num1;
+       num2 = num1;
 
         //Log.d("num2Per",Integer.toString(num2));
     }
@@ -185,6 +185,7 @@ public class MainActivity extends Activity {
         }
         else if(operator == '/') {
             if (num1.equals(BigInteger.ZERO)) {
+                chkDivideEqZero = true;
                 showResult.setText("Cannot divide by zero");
             } else {
 
@@ -196,9 +197,13 @@ public class MainActivity extends Activity {
         else if (operator == 'q')
             num1 = num2;
 
-        result1 = num1.toString();
-
-        //showResult.setText("= " + result1);
+        if(chkDivideEqZero)
+        {
+            result1 = "Cannot divide by zero";
+        } else {
+            result1 = num1.toString();
+        }
+        
     }
 
 
